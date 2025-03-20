@@ -1,0 +1,70 @@
+/* Set global styles for the body */
+body {
+    font-family: 'Times New Roman', Times, serif;/* Set the font */
+    background: linear-gradient(rgb(181, 107, 246),white);/* Apply a maroon-to-white gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style the form container */
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Style the heading */
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Style the form container */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Style input fields and dropdown */
+input, select {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style input fields and dropdown */
+.gender-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+/* Style submit button */
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(72, 32, 114, 0.514);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Change button color when hovered */
+button:hover {
+    background: rgb(40, 12, 57);
+}
+.error {
+    color: red;
+    font-size: 14px;
+}

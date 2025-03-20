@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Registration Form</title>
+     <!-- Linking external CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container to wrap the form for better styling -->
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <!-- Registration Form -->
+        <form id="regForm" onsubmit="return validateForm()">
+
+            <!-- Full Name Input -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <span class="error" id="nameError"></span>
+            <!-- Pattern ensures only letters and spaces are allowed -->
+
+            <!-- Email Input -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <span class="error" id="emailError"></span>
+            <!-- Ensures a valid email format -->
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
+            <span class="error" id="phoneError"></span>
+            <!-- Password Input -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+            <span class="error" id="passwordError"></span>
+            <!-- Password must contain at least one digit, one lowercase, one uppercase, one special character, and be at least 8 characters long -->
+            
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+        //Funtion to validate form elements
+        function validateForm() {
+            let isValid = true;
+            // Clear previous error messages
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("phoneError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+            
+            // Get form input values and trim whitespace
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let password = document.getElementById("password").value.trim();
+            
+            // Regular expression for name validation (only letters and spaces allowed)
+            let namePattern = /^[A-Za-z ]+$/;
+            if (name === "") {
+                document.getElementById("nameError").innerText = "Name is required";
+                isValid = false;
+            } else if (!name.match(namePattern)) {
+                document.getElementById("nameError").innerText = "Name must contain only letters and spaces";
+                isValid = false;
+            }
+            
+            // Regular expression for email validation (basic format check)
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById("emailError").innerText = "Enter a valid email";
+                isValid = false;
+            }
+
+            // Regular expression for phone number validation (must be exactly 10 digits)
+            let phonePattern = /^[0-9]{10}$/;
+            if (!phone.match(phonePattern)) {
+                document.getElementById("phoneError").innerText = "Enter a valid 10-digit phone number";
+                isValid = false;
+            }
+            
+            // Check if password length is at least 6 characters
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+    </script>
+</body>
+</html>

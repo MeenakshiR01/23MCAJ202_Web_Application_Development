@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover to Change Image and Text</title>
+    <style>
+        /* Styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #a8a7a7;
+        }
+        
+        /* Styling for the image */
+        img {
+            width: 700px;
+            height: 500px;
+            border-radius: 10px;
+            transition: opacity 0.5s ease;
+        }
+        
+        /* Styling for the text */
+        p {
+            font-size: 28px;
+            margin-top: 20px;
+            transition: color 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Image that changes on hover -->
+    <img id="hoverImage" src="image1.jpg" alt="Original Image">
+    
+    <!-- Text that changes on hover -->
+    <p id="hoverText">Hover over the image to see the magic!</p>
+    
+    <script>
+        // Selecting the image and text elements
+        const image = document.getElementById("hoverImage");
+        const text = document.getElementById("hoverText");
+
+        // Function to change image and text on mouseover
+        function changeContent() {
+            image.src = "image2.jpg"; // Change image source
+            text.innerText = "You hovered over the image!"; // Change text
+            text.style.color = "red"; // Change text color
+        }
+
+        // Function to revert image and text on mouseout
+        function revertContent() {
+            image.src = "image1.jpg"; // Revert image source
+            text.innerText = "Hover over the image to see the magic!"; // Revert text
+            text.style.color = "black"; // Revert text color
+        }
+
+        // Adding event listeners to handle mouseover and mouseout events
+        image.addEventListener("mouseover", changeContent);
+        image.addEventListener("mouseout", revertContent);
+    </script>
+</body>
+</html>

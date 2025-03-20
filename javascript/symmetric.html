@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title>Matrix Symmetry Checker</title>
+    <style>
+        /* Styling for body */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #c188c595;
+        }
+
+         /* Styling for input textarea */
+        textarea {
+            width: 300px;
+            height: 100px;
+            border-radius: 6px;
+            border: 2px;
+            border-color: black;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgb(34, 34, 34);
+        }
+
+          /* Styling for button */
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #662259;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #300f35;
+        }
+
+        /* Styling for result display */
+        pre {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgb(34, 34, 34);
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Matrix (Row-wise, space-separated):</h2>
+    <textarea id="matrixInput" placeholder="E.g.\n1 2 3\n2 4 5\n3 5 6"></textarea>
+    <button onclick="checkSymmetry()">Check Symmetry</button>
+    <h3>Result:</h3>
+    <pre id="result"></pre>
+
+    <script>
+        // Function to read and parse matrix input from textarea
+        function getMatrixFromInput() {
+            let input = document.getElementById("matrixInput").value.trim();
+            let rows = input.split("\n");
+            let matrix = rows.map(row => row.trim().split(" ").map(Number));
+            return matrix;
+        }
+
+        // Function to compute the transpose of a given matrix
+        function transposeMatrix(matrix) {
+            let transposed = matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
+            return transposed;
+        }
+
+        // Function to check if the matrix is symmetric (i.e., equal to its transpose)
+        function isSymmetric(matrix) {
+            let transposed = transposeMatrix(matrix);
+            return JSON.stringify(matrix) === JSON.stringify(transposed);
+        }
+
+        // Function to check matrix symmetry and display the results
+        function checkSymmetry() {
+            let matrix = getMatrixFromInput();
+            let transposed = transposeMatrix(matrix);
+            let symmetric = isSymmetric(matrix);
+
+            // Prepare output text
+            let resultText = "Original Matrix:\n" + matrix.map(row => row.join(" ")).join("\n");
+            resultText += "\n\nTranspose Matrix:\n" + transposed.map(row => row.join(" ")).join("\n");
+            resultText += "\n\n" + (symmetric ? "The matrix is symmetric." : "The matrix is not symmetric.");
+
+            // Display result
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
+</body>
+</html>
