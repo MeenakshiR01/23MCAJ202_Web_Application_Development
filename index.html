@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neurodiverse E-Learning Platform</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/themes.css" />
+</head>
+<body>
+  <header>
+    <h1>CHOOSE THE LESSON YOU NEED</h1>
+    <div class="accessibility-controls">
+  <button onclick="toggleContrast()">🌓 High Contrast</button>
+  <label>
+    Font Size:
+    <select onchange="changeFontSize(this.value)">
+      <option value="16px">Normal</option>
+      <option value="18px">Large</option>
+      <option value="20px">Extra Large</option>
+    </select>
+  </label>
+</div>
+
+  </header>
+
+  <main>
+    <main class="card-container">
+  <div class="lesson-card">
+    <h2>📘 Introduction to Numbers</h2>
+    <p id="lessonText1">
+      Numbers are the basic building blocks of mathematics. They help us count, measure, and compare.
+    </p>
+    <button style ="background-color: #5c6bc0; border : none; padding: 10px 20px; font-size: 16px;cursor: pointer; color: #fff; border-radius: 10px;" onclick="speakText('lessonText1')">START</button>
+  </div>
+
+  <div class="lesson-card">
+    <h2>📈 Why Learn Numbers?</h2>
+    <p id="lessonText2">
+      Understanding numbers helps in daily life—like shopping, time management, and budgeting.
+    </p>
+    <button style ="background-color: #5c6bc0; border : none; padding: 10px 20px; font-size: 16px;cursor: pointer; color: #fff; border-radius: 10px;" onclick="speakText('lessonText2')">START</button>
+  </div>
+
+  <div class="lesson-card">
+    <h2>🧮 Counting Practice</h2>
+    <p>
+      Let's practice counting from 1 to 10 using visual aids and audio cues.
+    </p>
+    <button style ="background-color: #5c6bc0; border : none; padding: 10px 20px; font-size: 16px;cursor: pointer; color: #fff; border-radius: 10px;" onclick="speakText('lessonText2')">START</button>
+  </div>
+</main>
+
+
+  <script src="scripts/settings.js"></script>
+</body>
+</html>
